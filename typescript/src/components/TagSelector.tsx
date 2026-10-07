@@ -3,7 +3,7 @@
 import { useState } from "react";
 import styles from "./TagSelector.module.css";
 import { ALLOWED_TAGS } from "@/constants/tags.ts";
-import { Claim } from "@/database/queries.ts";
+import type { Claim } from "@/database/queries.ts";
 import { updateClaimTag } from "@/api-client.ts";
 import AiButton from "@/components/AiButton";
 
@@ -94,7 +94,7 @@ export default function TagSelector({ claim, onTagUpdate }: TagSelectorProps) {
 				<div className={styles.tagSection}>
 					<h4>Assign Tag with AI</h4>
 					<div className={styles.tagSelector}>
-						<AiButton />
+						<AiButton claims={[claim]} />
 					</div>
 				</div>
 			</div>
