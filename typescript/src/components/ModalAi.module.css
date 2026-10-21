@@ -1,0 +1,83 @@
+.overlay {
+  position: fixed;
+  inset: 0; /* shorthand for top/right/bottom/left: 0 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #fff;
+    padding: 4rem 4rem;
+    border-radius: 8px;
+    max-width: 40vw;/* keeps a margin on small screens */
+    box-shadow: 0 10px 30px var(--shadow-sm);
+    text-align: center;
+     gap: 30px;
+     align-items: center;
+}
+
+.text {
+  margin: 0 0 1.5rem;
+  color: #222;
+  line-height: 1.5;
+}
+
+.button {
+
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 6px;
+  background-color:var(--primary-blue);
+  color: var(--background);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width:fit-content;
+  
+}
+
+.button:hover {
+  background-color: var(--primary-blue-hover);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--primary-blue-hover);
+  outline-offset: 2px;
+}
+
+.buttonClose{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    border: none;
+    width: 1.1rem;
+    background-color: var(--background);
+    
+   
+}
+
+.buttonClose:hover{
+    background-color: #e1ecec;
+}
+
+.select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #2563eb;
+}
