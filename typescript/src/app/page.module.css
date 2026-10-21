@@ -9,6 +9,17 @@
 
 .header {
   composes: header from '../styles/Header.module.css';
+    display: flex;
+    flex-direction: row;
+  justify-content: space-between; /* un élément à chaque extrémité */
+  align-items: center;    
+}
+
+.headerContent{
+  display: flex;
+    flex-direction: row;
+  justify-content: space-between; /* un élément à chaque extrémité */
+  align-items: center; 
 }
 
 .logo {

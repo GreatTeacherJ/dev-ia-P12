@@ -9,6 +9,7 @@ import { Claim } from "@/database/queries.ts";
 import { fetchClaims } from "@/api-client.ts";
 import { useEffect } from "react";
 import { Provider } from "@/components/Provider";
+import ParamModal from "@/components/ParamModal";
 
 export default function Home() {
 	const [selectedInboxId, setSelectedInboxId] = useState<string>("untagged");
@@ -69,9 +70,14 @@ export default function Home() {
 			<div className={styles.page}>
 				<header className={styles.header}>
 					{/* eslint-disable-next-line @next/next/no-img-element */}
-					<img src="/za-logo.svg" alt="ZA Logo" className={styles.logo} />
+					<div className={styles.headerContent}>
+						<img src="/za-logo.svg" alt="ZA Logo" className={styles.logo} />
 
-					<h1>Claims Management System</h1>
+						<h1>Claims Management System</h1>
+					</div>
+					<div className={styles.headerContent}>
+						<ParamModal />
+					</div>
 				</header>
 
 				<main id="main-content" className={styles.mainContent}>

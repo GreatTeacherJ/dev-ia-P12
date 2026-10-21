@@ -1,11 +1,22 @@
 // src/providers/claims-provider.tsx
 "use client";
 
-import { createContext, useContext, type ReactNode } from "react";
+import {
+	createContext,
+	useContext,
+	type ReactNode,
+	useState,
+	Dispatch,
+	SetStateAction,
+} from "react";
+import { MODEL_CHOICE } from "@/constants/model";
+import type { ModelName } from "@/types/aiType";
 
 // Shape of the value exposed by the context
 interface ClaimsContextValue {
 	handleTagUpdate: (claimId: number, tag: string) => void | null;
+	modelSelect: ModelName;
+	setModelSelect: Dispatch<SetStateAction<ModelName>>;
 }
 
 // 1. Create the context.
@@ -20,8 +31,9 @@ export function Provider({
 	children: ReactNode;
 	handleTagUpdate: (claimId: number, tag: string) => void;
 }) {
+	const [modelSelect, setModelSelect] = useState<ModelName>(MODEL_CHOICE[0]);
 	return (
-		<ClaimsContext.Provider value={{ handleTagUpdate }}>
+		<ClaimsContext.Provider value={{ handleTagUpdate, modelSelect, setModelSelect }}>
 			{children}
 		</ClaimsContext.Provider>
 	);

@@ -7,6 +7,7 @@ import { updateClaimTag } from "@/api-client.ts";
 import { useProvider } from "./Provider";
 import { useState, ReactNode, Dispatch, SetStateAction } from "react";
 import ModalAi from "./ModalAi";
+import { callModel } from "@/utils/callAi";
 
 export default function AiButton({
 	claims,
@@ -17,7 +18,7 @@ export default function AiButton({
 }) {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [isOpen, setIsOpen] = useState<ReactNode>();
-	const { handleTagUpdate } = useProvider();
+	const { handleTagUpdate, modelSelect } = useProvider();
 
 	const claimsTaged = claims.filter((claim) => claim.tag).length;
 	const content = (
@@ -62,7 +63,7 @@ export default function AiButton({
 			setIsUpdating(true);
 		}
 		try {
-			const res = await callMammouth(claims);
+			const res = await callModel(claims, modelSelect);
 
 			if (res[9999]) {
 				throw new Error("Appelle du modéle échoué\n" + res[9999]);

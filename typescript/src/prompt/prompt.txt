@@ -39,4 +39,4 @@ Input:
 {0: "I took out a short-term payday loan and they changed the interest rate without telling me.", 1: "TransUnion keeps unauthorized inquiries on my credit report despite my disputes."}
 
 Expected output:
-{"response": ["Payday loan, title loan, or personal loan", "Credit reporting, credit repair services, or other personal consumer reports"]}
+{"response": {0:"Payday loan, title loan, 1:or personal loan", 2:"Credit reporting, 3:credit repair services, 4:or other personal consumer reports"}
